@@ -2,6 +2,7 @@ import React from 'react';
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
+import { FaStar } from 'react-icons/fa';
 const CourseInfoCard = ({ course }) => {
     const { id, name, Intro, rating, level, img_url } = course;
     console.log(course)
@@ -20,7 +21,7 @@ const CourseInfoCard = ({ course }) => {
                 </Card.Body>
                 <Card.Footer >
                     <div className='d-flex justify-content-between'>
-                        <p>Rating: {rating}</p>
+                        <p><FaStar></FaStar> {rating}</p>
                         <p>{level}-Course</p>
                     </div>
                 </Card.Footer>

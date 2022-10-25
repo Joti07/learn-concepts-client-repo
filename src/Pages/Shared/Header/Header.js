@@ -1,9 +1,12 @@
 import React from 'react';
+import { useContext } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+//import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 const Header = () => {
+    //const { user } = useContext(AuthContext);
     return (
 
         <Navbar collapseOnSelect className='mb-4' expand="lg" bg="dark" variant="dark">
