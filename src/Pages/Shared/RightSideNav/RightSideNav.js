@@ -1,4 +1,4 @@
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import React from 'react';
 import { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
@@ -19,11 +19,23 @@ const RightSideNav = () => {
 
     }
 
+    const githubProvider = new GithubAuthProvider();
+    const handleGithubSignIn = () => {
+        providerLogin(githubProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(error => console.error(error))
+
+
+    }
+
     return (
         <div>
             <ButtonGroup vertical>
                 <Button onClick={handleGoogleSignIn} className='mb-2' variant="outline-primary"><FaGoogle></FaGoogle>  Login with Google</Button>
-                <Button variant="outline-dark"><FaGithub></FaGithub> Login with Github</Button>
+                <Button onClick={handleGithubSignIn} variant="outline-dark"><FaGithub></FaGithub> Login with Github</Button>
             </ButtonGroup>
         </div>
     );

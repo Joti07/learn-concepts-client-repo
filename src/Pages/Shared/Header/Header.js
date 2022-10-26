@@ -58,6 +58,8 @@ const Header = () => {
                                 </Image>
                                 : <FaUser></FaUser>
                             }
+
+
                         </Link>
                     </Nav>
 
