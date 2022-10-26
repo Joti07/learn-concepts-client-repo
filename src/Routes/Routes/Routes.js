@@ -8,6 +8,7 @@ import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Login/Login/Login";
 import Register from "../../Pages/Login/Register/Register";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import Profile from "../../Pages/Shared/Others/Profile/Profile";
 
 export const routes = createBrowserRouter([
 
@@ -53,6 +54,10 @@ export const routes = createBrowserRouter([
                 path: '/register',
                 element: <Register></Register>,
                 //  loader: () => fetch('https://dragon-news-server-seven.vercel.app/news')
+            },
+            {
+                path: '/profile',
+                element: <PrivateRoute><Profile></Profile></PrivateRoute>
             }
 
 
