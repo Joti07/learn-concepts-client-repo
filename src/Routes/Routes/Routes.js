@@ -5,7 +5,9 @@ import Blogs from "../../Pages/Blogs/Blogs";
 import Courses from "../../Pages/Courses/Courses";
 import FAQ from "../../Pages/FAQ/FAQ";
 import Home from "../../Pages/Home/Home";
-import CourseInfoCard from "../../Pages/Shared/CourseInfoCard/CourseInfoCard";
+import Login from "../../Pages/Login/Login/Login";
+import Register from "../../Pages/Login/Register/Register";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 export const routes = createBrowserRouter([
 
@@ -20,13 +22,13 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/courses',
-                element: <Course></Course>,
+                element: <Courses></Courses>,
                 loader: ({ params }) => fetch(`http://localhost:5000/courses`)
                 // loader: ({ params }) => fetch(`http://localhost:5000/courses/${params.id}`)
             },
             {
                 path: '/course/:id',
-                element: <Course></Course>,
+                element: <PrivateRoute><Course></Course></PrivateRoute>,
                 loader: ({ params }) => fetch(`http://localhost:5000/courses/${params.id}`)
                 // loader: ({ params }) => fetch(`http://localhost:5000/courses`)
 
@@ -39,6 +41,17 @@ export const routes = createBrowserRouter([
             {
                 path: '/faq',
                 element: <FAQ></FAQ>,
+                //  loader: () => fetch('https://dragon-news-server-seven.vercel.app/news')
+
+            },
+            {
+                path: '/login',
+                element: <Login></Login>,
+                //  loader: () => fetch('https://dragon-news-server-seven.vercel.app/news')
+            },
+            {
+                path: '/register',
+                element: <Register></Register>,
                 //  loader: () => fetch('https://dragon-news-server-seven.vercel.app/news')
             }
 

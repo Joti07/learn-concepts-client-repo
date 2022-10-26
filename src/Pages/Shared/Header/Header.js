@@ -4,12 +4,18 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { FaUser } from 'react-icons/fa';
-import { Image } from 'react-bootstrap';
+import { Button, Image } from 'react-bootstrap';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
+import { Link } from 'react-router-dom';
 
 
 const Header = () => {
-    const { user } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.error(error))
+    }
     console.log(user)
     return (
 
@@ -25,15 +31,34 @@ const Header = () => {
                         <Nav.Link href="faq">FAQ</Nav.Link>
                     </Nav>
 
-                    <Nav >
-                        <Nav.Link>{user?.displayName}</Nav.Link>
-                        <Nav.Link>
-                            {user.photoURL ?
-                                <Image style={{ height: '40px' }} roundedCircle src={user.photoURL}></Image> :
-                                <FaUser></FaUser>
+                    <Nav>
+                        <>
+                            {
+                                user?.uid ?
+                                    <>
+                                        <span>{user?.displayName}</span>
+                                        <Button variant="light" onClick={handleLogOut}>Log out</Button>
+                                    </>
+                                    :
+                                    <>
+                                        <Link to='/login'>Login</Link>
+                                        <Link to='/register'>Register</Link>
+                                    </>
                             }
-                        </Nav.Link>
 
+
+                        </>
+                        <Link to="/profile">
+                            {user?.photoURL ?
+
+                                <Image
+                                    style={{ height: '40px' }}
+                                    roundedCircle
+                                    src={user?.photoURL}>
+                                </Image>
+                                : <FaUser></FaUser>
+                            }
+                        </Link>
                     </Nav>
 
                 </Navbar.Collapse>
