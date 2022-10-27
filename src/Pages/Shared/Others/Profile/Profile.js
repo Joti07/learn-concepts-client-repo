@@ -9,7 +9,7 @@ const Profile = () => {
     const { user } = useContext(AuthContext);
     const [name, setName] = useState(user.displayName);
     const photoURLRef = useRef(user.photoURL);
-    console.log(name);
+    //console.log(name);
 
     const handleSubmit = event => {
         event.preventDefault();

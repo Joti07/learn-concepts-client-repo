@@ -38,23 +38,23 @@ export const routes = createBrowserRouter([
             {
                 path: '/blogs',
                 element: <Blogs></Blogs>,
-                //  loader: () => fetch('https://dragon-news-server-seven.vercel.app/news')
+
             },
             {
                 path: '/faq',
                 element: <FAQ></FAQ>,
-                //  loader: () => fetch('https://dragon-news-server-seven.vercel.app/news')
+
 
             },
             {
                 path: '/login',
                 element: <Login></Login>,
-                //  loader: () => fetch('https://dragon-news-server-seven.vercel.app/news')
+
             },
             {
                 path: '/register',
                 element: <Register></Register>,
-                //  loader: () => fetch('https://dragon-news-server-seven.vercel.app/news')
+
             },
             {
                 path: '/profile',
@@ -62,7 +62,8 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/checkout',
-                element: <PrivateRoute><CheckOut></CheckOut></PrivateRoute>
+                element: <PrivateRoute><CheckOut></CheckOut></PrivateRoute>,
+                loader: ({ params }) => fetch(`http://localhost:5000/courses`)
             }
 
 
