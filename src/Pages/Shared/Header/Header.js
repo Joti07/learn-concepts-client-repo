@@ -7,6 +7,7 @@ import { FaUser } from 'react-icons/fa';
 import { Button, Image } from 'react-bootstrap';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import { Link } from 'react-router-dom';
+import './Header.css';
 
 
 const Header = () => {
@@ -19,7 +20,7 @@ const Header = () => {
     console.log(user)
     return (
 
-        <Navbar collapseOnSelect className='mb-4' expand="lg" bg="dark" variant="dark">
+        <Navbar collapseOnSelect className='mb-4' expand="lg" bg="light" variant="light">
             <Container>
                 <Navbar.Brand href="/">Learn Concepts</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -29,9 +30,15 @@ const Header = () => {
                         <Nav.Link href="courses">Courses</Nav.Link>
                         <Nav.Link href="blogs">Blogs</Nav.Link>
                         <Nav.Link href="faq">FAQ</Nav.Link>
+
+
                     </Nav>
 
                     <Nav>
+                        <label class="switch">
+                            <input type="checkbox" />
+                            <span class="slider round"></span>
+                        </label>
                         <>
                             {
                                 user?.uid ?
@@ -41,8 +48,8 @@ const Header = () => {
                                     </>
                                     :
                                     <>
-                                        <Link to='/login'>Login</Link>
-                                        <Link to='/register'>Register</Link>
+                                        <Button className="border-0  ms-1" variant="outline-secondary">  <Link to='/login'>Login</Link> </Button>
+                                        <Button className="border rounded ms-1" variant="outline-secondary">  <Link to='/register'>Register</Link> </Button>
                                     </>
                             }
 
