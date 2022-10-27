@@ -22,6 +22,7 @@ const Header = () => {
 
         <Navbar collapseOnSelect className='mb-4' expand="lg" bg="light" variant="light">
             <Container>
+
                 <Image
                     style={{ height: '40px', width: '40px', marginRight: '20px' }}
                     // roundedCircle
@@ -65,6 +66,8 @@ const Header = () => {
                             {user?.photoURL ?
 
                                 <Image
+                                    data-toggle="tooltip"
+                                    title={user?.displayName}
                                     style={{ height: '40px' }}
                                     roundedCircle
                                     src={user?.photoURL}>
