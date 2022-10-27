@@ -22,6 +22,11 @@ const Header = () => {
 
         <Navbar collapseOnSelect className='mb-4' expand="lg" bg="light" variant="light">
             <Container>
+                <Image
+                    style={{ height: '40px', width: '40px', marginRight: '20px' }}
+                    // roundedCircle
+                    src="https://files.123freevectors.com/wp-content/uploads/freevectorimage/learning-concept-free-vector-3506.jpg">
+                </Image>
                 <Navbar.Brand href="/">Learn Concepts</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
@@ -43,8 +48,9 @@ const Header = () => {
                             {
                                 user?.uid ?
                                     <>
-                                        <span>{user?.displayName}</span>
+                                        {/* <span>{user?.displayName}</span> */}
                                         <Button variant="light" onClick={handleLogOut}>Log out</Button>
+                                        <Button variant="light" > <Link to='/checkout'>Premium</Link></Button>
                                     </>
                                     :
                                     <>
